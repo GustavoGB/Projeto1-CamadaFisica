@@ -1,6 +1,5 @@
 
 
-*Entrega : Próxima aula 17/8*
 
 ![Etapa Atual](doc/etapaAtualPilhaAplicacao.png){ width=30% }
 
@@ -33,6 +32,8 @@ enlaceRx.py : parte do enlace responsável por receber n dados via a camada fís
 interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e recebimento.
 
 A figura a seguir faz uma relação dos códigos com cada etapa da comunicação a ser desenvolvida :
+
+(doc/Diagrama.png)
 
 
 
