@@ -33,7 +33,7 @@ interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e rec
 
 A figura a seguir faz uma relação dos códigos com cada etapa da comunicação a ser desenvolvida :
 
-(doc/Diagrama.png)
+![Camadas](doc/Diagrama.png)
 
 
 
