@@ -1,8 +1,5 @@
 
 
-
-![Etapa Atual](doc/etapaAtualPilhaAplicacao.png){ width=30% }
-
 # Projeto 1 : Client-Server
 
 Essa etapa do projeto consiste na modificação da comunicação em modo loopback
@@ -15,7 +12,7 @@ A comunicação entre dois computadores e dois microprocessadores(Arduino) conec
 
 
 
-## Código Base
+## Código Final
 
 O código possui os seguintes arquivos : server.py; server.py; enlace.py; enlaceTx.py; enlaceRx.py; interfaceFisica.py. Sendo cada um responsável por :
 
