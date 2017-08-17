@@ -37,6 +37,8 @@ Além deste diagrama, analisou-se novamente as camadas para saber qual era a rel
 ![Camadas](doc/DiagramaCamadas.png)
 
 
+Segue o esquema do funcionamento físico da transmissão de dados
+![Camadas](doc/clientserver2.png)
 
 
 
