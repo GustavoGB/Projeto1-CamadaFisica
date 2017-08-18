@@ -1,9 +1,5 @@
 
 
-*Entrega : Próxima aula 17/8*
-
-![Etapa Atual](doc/etapaAtualPilhaAplicacao.png){ width=30% }
-
 # Projeto 1 : Client-Server
 
 Essa etapa do projeto consiste na modificação da comunicação em modo loopback
@@ -16,7 +12,7 @@ A comunicação entre dois computadores e dois microprocessadores(Arduino) conec
 
 
 
-## Código Base
+## Código Final
 
 O código possui os seguintes arquivos : server.py; server.py; enlace.py; enlaceTx.py; enlaceRx.py; interfaceFisica.py. Sendo cada um responsável por :
 
@@ -33,6 +29,12 @@ enlaceRx.py : parte do enlace responsável por receber n dados via a camada fís
 interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e recebimento.
 
 A figura a seguir faz uma relação dos códigos com cada etapa da comunicação a ser desenvolvida :
+
+![Camadas](doc/Diagrama.png)
+
+
+Além deste diagrama, analisou-se novamente as camadas para saber qual era a relação entre elas e o próprio código, desse modo tem-se que :
+
 
 
 
