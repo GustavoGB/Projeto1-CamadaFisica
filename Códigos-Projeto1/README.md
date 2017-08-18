@@ -34,9 +34,11 @@ A figura a seguir faz uma relação dos códigos com cada etapa da comunicação
 
 
 Além deste diagrama, analisou-se novamente as camadas para saber qual era a relação entre elas e o próprio código, desse modo tem-se que :
+![Camadas](doc/DiagramaCamadas.png)
 
 
-
+Segue o esquema do funcionamento físico da transmissão de dados
+![Camadas](doc/clientserver3.png)
 
 
 
