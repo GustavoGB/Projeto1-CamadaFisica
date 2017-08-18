@@ -1,4 +1,4 @@
-#Aplicacao CLIENT
+##CLIENT
 
 from enlace import *
 import time
@@ -40,37 +40,21 @@ def main():
 
     # Transmite imagem
     print("Transmitindo .... {} bytes".format(txLen))
+    start = time.time()
     com.sendData(txBuffer)
 
     # espera o fim da transmissão
     while(com.tx.getIsBussy()):
         pass
-
-    # Atualiza dados da transmissão
-    #txSize = com.tx.getStatus()
-    #print ("Transmitido       {} bytes ".format(txSize))
-
-    #Faz a recepção dos dados
-    #print ("Recebendo dados .... ")
-    #rxBuffer, nRx = com.getData(txLen)
-
-    # log
-    #print ("Lido              {} bytes ".format(nRx))
-
-   # Salva imagem recebida em arquivo
-   #print("-------------------------")
-   #print ("Salvando dados no arquivo :")
-   # print (" - {}".format(imageW))
-   #f = open(imageW, 'wb')
-   # f.write(rxBuffer)
-
-   # Fecha arquivo de imagem
-   #  f.close()
+   
+    end = time.time()
+    tempo = (end-start)
 
     #Encerra comunicação
     print("-------------------------")
     print("Comunicação encerrada")
     print("-------------------------")
+    print("Tempo de transmissão:","{0:.2f}".format(tempo),"segundos")
     com.disable()
 
 if __name__ == "__main__":
