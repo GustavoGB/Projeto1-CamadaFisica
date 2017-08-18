@@ -1,8 +1,4 @@
----
-title: Camada Física -  Projeto 1 - COM-Client-Server 
-author: Rafael Corsi - rafael.corsi@insper.edu.br
-date: 2017
----
+
 
 *Entrega : Próxima aula 17/8*
 
@@ -16,65 +12,30 @@ Como ilustrado no diagrama a seguir :
 
 ![Comunicação entre dois computadores](doc/clientServer.png){ width=100% }
 
-Para tanto será necessário modificar o exemplo original (localizado no repositório em : /1-Materiais/0-COM-LoopBack/) para passar a funcionar de uma comunicação em modo loopback para uma comunicação ponto a ponto entre dois computadores.
+A comunicação entre dois computadores e dois microprocessadores(Arduino) conectados entre si, baseia-se em uma interação entre diferentes camadas entre as duas aplicações. Dessa forma, os códigos foram modificados a partir de uma base dada no projeto 0(loopback). Essa modificação consiste em dividir a aplicação em cliente e servidor; o primeiro, serializa um arquivo e o transmite; enquanto o segundo, é responsável por desserializar o mesmo arquivo e salvá-lo na memória. 
 
-Ler a respeito do modo loopback em :
 
-- [Modo LoopBack](https://github.com/Insper/Camada-Fisica-Computacao/wiki/Hardware---Comunica%C3%A7%C3%A3o-modo-LoopBack)
 
-## Papeis
+## Código Base
 
-- Client : O papel do client nesse caso será o do envio de uma imagem para o server.
-- Server : O papel do server será o da recepção de uma imagem enviada pelo
-  client.
-  
-## Requisitos
+O código possui os seguintes arquivos : server.py; server.py; enlace.py; enlaceTx.py; enlaceRx.py; interfaceFisica.py. Sendo cada um responsável por :
 
-1. Criar os papeis de Client e Servidor
-1. Comunicar dois computadores distintos enviando um arquivo entre eles
-1. Documentar o protocolo.
+server.py : Código que prepara o computador para receber a imagem do Client.
 
-## Validação
+client.py : Código que transmite a imagem e aguarda o fim da transmissão.
 
-- Conectar dois computadores via arduino e transmitir um arquivo de tamanho definido entre os dois nós.
+enlace.py : Interface de comunicação entre a aplicação e o enlace.
 
-## Código base
- 
-- Um código base que faz a comunicação em modo loopback é fornecido em :
-    - [3-Projetos/0-COM-LoopBack/](https://github.com/Insper/Camada-Fisica-Computacao/tree/master/3-Projetos/0-COM-LoopBack)
+enlaceTx.py : parte do enlace responsável por transmitir n dados via a camada física (interfaceFisica.py)
 
-# Avaliação :
+enlaceRx.py : parte do enlace responsável por receber n dados via a camada física (interfaceFisica.py)
 
-## Itens necessários para o aceite
-- Aplicação
-    - Possui Client e Server como aplicações distintas
-    - Client
-        - Lê um arquivo do computador e o transmite via enlace.
-        - Cálculo do tempo de transmissão
-    - Server 
-        - Lê um arquivo via enlace e salva no computador.
-        - Cálculo do tempo de recepção 
-- Documentação
-    - Diagrama de funcionamento
-    - Diagrama de camadas
+interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e recebimento.
 
-## Itens extras
+A figura a seguir faz uma relação dos códigos com cada etapa da comunicação a ser desenvolvida :
 
-- Aplicação
-    - Interface gráfica para seleção de imagem a ser lida e salva
 
-## Rubricas
 
-| Nota máxima | Descritivo                                           |
-|-------------|------------------------------------------------------|
-| A           | - Entregue no prazo                                  |
-|             | - Implementado extras                                |
-| B           | - Entregue no prazo                                  |
-|             | - Implementado itens necessários                     |
-| C           | - Entregue fora do prazo                             |
-|             | - Implementando itens ncessários                     |
-| D           | - Nem todos os itens necessários foram implementados |
-| I           | - Não entregue                                       |
 
 
 
