@@ -119,7 +119,7 @@ class RX(object):
             
             if eop != -1: #EOP existe
                 
-                packetHead = self.buffer.find(b'\x00\xCC') #Procura pelo HEADER
+                packetHead = self.buffer.find(b'\x00\xFF') #Procura pelo HEADER
                 
                 head_concatenado_Payload = self.buffer[:eop] #Começo até EOP (Não inclui EOP)
                 

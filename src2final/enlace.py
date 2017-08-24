@@ -64,8 +64,8 @@ class enlace(object):
     #ESTRUTURA HEAD
     def headStruct(self):
         self.headStruct = 0xAA
-        self.headStruct = Struct("start"/ Int16ub)
-                                ("size"/ Int16ub)
+        self.headStruct = Struct("start"/ Int16ub,
+                                "size"/ Int16ub)
 
     #HEAD IMPLEMENTADO
     def buildHead(self,datAlen):
@@ -78,7 +78,7 @@ class enlace(object):
     #ESTRUTURA End Of Packet(EOP)
     def EopStruct(self):
 
-        self.endStart = 2xCC
+        self.endStart = 0xFF
         self.endStruct = Struct("Otavio"/Int8ub,
                                 "Manoel"/Int8ub,
                                 "Ricardo"/Int8ub)

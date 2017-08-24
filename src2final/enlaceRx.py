@@ -27,7 +27,7 @@ class RX(object):
         self.threadStop  = False
         self.threadMutex = True
         self.READLEN     = 1024
-	self.packetFound = False
+        self.packetFound = False
 
     def thread(self):
         """ RX thread, to send data in parallel with the code
