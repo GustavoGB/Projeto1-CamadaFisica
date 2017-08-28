@@ -5,7 +5,7 @@ import time
 # Construct Struct
 from construct import *
 
-# Interface Física
+# Interface física
 from interfaceFisica import fisica
 
 # enlace Tx e Rx
@@ -43,68 +43,66 @@ class enlace(object):
     def sendData(self, data):
         """ Send data over the enlace interface
         """
-
-        #Início do protocolo
-
-        self.StructEop()
+        
+        #Construção do Head
         self.StructHead()
-       
+        
         #Encapuslamento do arquivo--> ENVIO
-       	package = Package(data).buildPackage()
-        self.tx.sendBuffer(data)
+        pack = self.buildDataPacket(data)
+        
+        #Construção do EOP
+        self.StructEop()
 
+        self.tx.sendBuffer(pack)
+        
     def getData(self, size):
         """ Get n data over the enlace interface
         Return the byte array and the size of the buffer
         """
-        data,size = self.rx.unbuildDataPacket()
+        data, size = self.rx.unbuildDataPacket()
+
         return(data,len(data),size)
 
 
-    #ESTRUTURA HEAD
-    def headStruct(self):
-        self.headStruct = 0xAA
-        self.headStruct = Struct("start"/ Int16ub,
-                                "size"/ Int16ub)
+    #Estrutura Head
+    def StructHead(self):
+        self.headStart = 0xAA
+        self.headStruct = Struct("start"/ Int16ub, "size"/ Int16ub)
 
-    #HEAD IMPLEMENTADO
-    def buildHead(self,datAlen):
-        head = self.headStruct.build(dict(
-                                    start = self.headStart,
-                                    size = datAlen))
-        
+    #Implementa o Head
+    def buildHead(self, datalen):
+
+        head = self.headStruct.build(dict(start = self.headStart, size = datalen))
+
         return head
 
-    #ESTRUTURA End Of Packet(EOP)
-    def EopStruct(self):
+    #Estrutura EOP
+    def StructEop(self):
 
         self.endStart = 0xFF
-        self.endStruct = Struct("Otavio"/Int8ub,
-                                "Manoel"/Int8ub,
-                                "Ricardo"/Int8ub)
+        self.endStruct = Struct("g1"/Int8ub, "g2"/Int8ub, "g3"/Int8ub)
 
-    #EOP IMPLEMENTADO
+
+    #Implementa o EOP
+
     def buildEop(self):
-        end = self.endStruct.build(dict(
-                                    Otavio = 0x04,
-                                    Manoel = 0x05,
-                                    Ricardo = 0x06))
+
+        end = self.endStruct.build(dict(g1 = 0x01, g2 = 0x02, g3 = 0x03))
+
         return end
 
 
-    def buildDataPacket(self,data):
-        pack = self.buildHead(len(data))
-        print(len(data)) # Printar o size 
+    def buildDataPacket(self, data):
 
-        #CONCATENAÇÃO DO HEADER,DATALEN E O END OF PACKET
+        pack = self.buildHead(len(data))
+
+        print(len(data)) # Printar o tamanho do arquivo (payload)
+
+        #Gerar Head
+        pack = self.buildHead(datalen)
+
+        #Concatenação do Header, payload e EOP
         pack += data
         pack += self.buildEop()
         
         return pack
-
-
-
-
-
-
-

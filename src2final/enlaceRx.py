@@ -116,11 +116,11 @@ class RX(object):
         """
         while(self.packetFound == False):
 
-            eop = self.buffer.find(b'\x04\x05\x06') #Procura sequência do EOP
+            eop = self.buffer.find(b'\x01\x02\x03') #Procura sequência do EOP
             
             if eop != -1: #EOP existe
                 
-                packetHead = self.buffer.find(b'\x00\xCC') #Procura pelo HEADER
+                packetHead = self.buffer.find(b'\x00\xAA') #Procura pelo HEADER
                 
                 head_concatenado_Payload = self.buffer[:eop] #Começo até EOP (Não inclui EOP)
                 
@@ -130,6 +130,3 @@ class RX(object):
                 self.packetFound = True
 
                 return(payload, size)
-
-
-
