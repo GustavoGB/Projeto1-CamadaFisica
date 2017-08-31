@@ -5,9 +5,6 @@
   Essa etapa do projeto consiste na modificação das camadas de enlace do protocolo de comunicação entre os computadores, com o objetivo de tornar a mesma um passo mais independente. Neste projeto será gerado um pacote, que encapsulará os dados (payload) e irá conter outros dados fundamentais para identificação das informações do pacote, como tamanho. Isso irá possibilitar que o server não precise previamente saber o tamanho do arquivo sendo transmitido.
 
 
-A comunicação entre dois computadores e dois microprocessadores(Arduino) conectados entre si, baseia-se em uma interação entre diferentes camadas entre as duas aplicações. Dessa forma, os códigos foram modificados a partir de uma base dada no projeto 0(loopback). Essa modificação consiste em dividir a aplicação em cliente e servidor; o primeiro, serializa um arquivo e o transmite; enquanto o segundo, é responsável por desserializar o mesmo arquivo e salvá-lo na memória. 
-
-
 
 ## Código Final
 
@@ -28,4 +25,4 @@ interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e rec
 
 ##Informações do Header e End Of Package
 
-O header (Head) e End Of Package (EOP) são as partes do pacote que servirão de referência para o server, se localizando dentro do pacote, assim ele saberá qual tamanho do próprio Head e EOP, tamanho do payload, em quantos pequenos pacotes o payload está dividido, e com isso o recebimento será mais preciso quanto à perda de dados e corrompimento de dados.
+O header (Head) e End Of Package (EOP) são as partes do pacote que servirão de referência para o server, se localizando dentro do pacote, assim ele saberá qual tamanho do próprio Head e EOP, tamanho do payload, e com isso o recebimento será mais preciso quanto à perda de dados e corrompimento de dados.
