@@ -23,6 +23,6 @@ enlaceRx.py : Parte do enlace responsável por receber e desencapsular os dados.
 interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e recebimento.
 
 
-##Informações do Header e End Of Package
+### Informações do Header e End Of Package
 
 O header (Head) e End Of Package (EOP) são as partes do pacote que servirão de referência para o server, se localizando dentro do pacote, assim ele saberá qual tamanho do próprio Head e EOP, tamanho do payload, e com isso o recebimento será mais preciso quanto à perda de dados e corrompimento de dados.
