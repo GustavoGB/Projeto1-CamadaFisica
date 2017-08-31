@@ -45,13 +45,16 @@ class enlace(object):
         """
         
         #Construção do Head
+
+        self.StructEop()
         self.StructHead()
+       
         
         #Encapuslamento do arquivo--> ENVIO
         pack = self.buildDataPacket(data)
         
         #Construção do EOP
-        self.StructEop()
+  
 
         self.tx.sendBuffer(pack)
         
@@ -80,27 +83,28 @@ class enlace(object):
     def StructEop(self):
 
         self.endStart = 0xFF
-        self.endStruct = Struct("g1"/Int8ub, "g2"/Int8ub, "g3"/Int8ub)
+        self.endStruct = Struct("g1"/Int8ub, "g2"/Int8ub, "g3"/Int8ub,"g4"/Int8ub)
 
 
     #Implementa o EOP
 
     def buildEop(self):
 
-        end = self.endStruct.build(dict(g1 = 0x01, g2 = 0x02, g3 = 0x03))
+        end = self.endStruct.build(dict(g1 = 0x01, g2 = 0x02, g3 = 0x03,g4 = 0x04))
 
         return end
 
 
     def buildDataPacket(self, data):
 
+
+        #Gerar Head
+
         pack = self.buildHead(len(data))
 
         print(len(data)) # Printar o tamanho do arquivo (payload)
 
-        #Gerar Head
-        pack = self.buildHead(datalen)
-
+        
         #Concatenação do Header, payload e EOP
         pack += data
         pack += self.buildEop()
