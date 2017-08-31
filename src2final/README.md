@@ -25,10 +25,3 @@ enlaceTx.py : Parte do enlace responsável por encapsular os dados em um pacote.
 enlaceRx.py : Parte do enlace responsável por receber e desencapsular os dados.
 
 interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e recebimento.
-
-A figura a seguir faz uma relação dos códigos com cada etapa da comunicação a ser desenvolvida :
-
-![Camadas](doc/Diagrama.png)
-
-
-Além deste diagrama, analisou-se novamente as camadas para saber qual era a relação entre elas e o próprio código, desse modo tem-se que :
