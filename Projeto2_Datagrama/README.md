@@ -5,7 +5,7 @@
   Essa etapa do projeto consiste na modificação das camadas de enlace do protocolo de comunicação entre os computadores, com o objetivo de tornar a mesma um passo mais independente. Neste projeto será gerado um pacote, que encapsulará os dados (payload) e irá conter outros dados fundamentais para identificação das informações do pacote, como tamanho. Isso irá possibilitar que o server não precise previamente saber o tamanho do arquivo sendo transmitido.
   
   O funcionamento do empacotamento é demonstrado a seguir:
-  ![empacotamento](imgs/Datagrama/empacotamento.png)
+  ![empacotamento](src/imgs/Datagrama/empacotamento.png)
 
 
 
@@ -35,7 +35,7 @@ interfaceFisica.py : Código que lida com o envio dos dados para o Arduino e rec
 ## Cálculo do OverHead, BaudRate e ThroughPut
 
   Overhead é a relação do tamanho do tamanho total do pacote com o tamanho do payload, para isso utiliza-se a razão entre o tamanho total e o tamanho do payload, encontrando assim quantos payloads cabem no pacote total, ou quantas vezes o pacote é maior que o payload.
-  ![overhead](imgs/Datagrama/overhead.png)
+  ![overhead](src/imgs/Datagrama/overhead.png)
   
   BaudRate é a quantidade de bits que uma rede consegue transmitir por segundo.
 
