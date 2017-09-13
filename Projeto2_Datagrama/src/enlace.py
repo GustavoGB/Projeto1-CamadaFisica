@@ -59,7 +59,7 @@ class enlace(object):
 
         self.tx.sendBuffer(pack)
         
-    def getData(self, size):
+    def getData(self):
         """ Get n data over the enlace interface
         Return the byte array and the size of the buffer
         """
@@ -91,7 +91,7 @@ class enlace(object):
 
     def buildEop(self):
 
-        end = self.endStruct.build(dict(g1 = 0x01, g2 = 0x02, g3 = 0x03,g4 = 0x04))
+        end = self.endStruct.build(dict(g1 = 0x21, g2 = 0x42, g3 = 0x63,g4 = 0x04))
 
         return end
 

@@ -37,11 +37,16 @@ def main():
     # Faz a recepção dos dados
     print ("Recebendo dados .... ")
     #txBuffer = open(imageR, 'rb').read()
-    txLen = 19716
+    #txLen = 19716
 
-    rxBuffer, nRx = com.getData(1)
+    tempBuffer, nRx, size = com.getData()
+
+
+
+
+    #rxBuffer, nRx = com.getData(1)
     start = time.time()
-    rxBuffer, nRx = com.getData(txLen-1)
+    #rxBuffer, nRx = com.getData(txLen-1)
 
     # log
     end = time.time()
@@ -53,7 +58,7 @@ def main():
     print ("Salvando dados no arquivo :")
     print (" - {}".format(imageW))
     f = open(imageW, 'wb')
-    f.write(rxBuffer)
+    f.write(tempBuffer)
 
     # Fecha arquivo de imagem
     f.close()

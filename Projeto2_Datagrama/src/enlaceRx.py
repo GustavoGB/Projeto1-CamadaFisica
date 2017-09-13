@@ -111,12 +111,12 @@ class RX(object):
         self.buffer = b""
 
 
-    def unbuildDataPacket(self):
+    def UnbuildPack(self):
         """ Desencapsula os dados do pacote, retornando datalen e payload
         """
         while(self.packetFound == False):
 
-            eop = self.buffer.find(b'\x01\x02\x03') #Procura sequência do EOP
+            eop = self.buffer.find(b'\x01\x02\x03\x04') #Procura sequência do EOP
             
             if eop != -1: #EOP existe
                 
