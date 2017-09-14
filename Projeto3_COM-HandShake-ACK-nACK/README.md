@@ -1,4 +1,4 @@
-![Etapa Atual](doc/etapaAtualPilhaEnlace.png){ width=30% }
+![Etapa Atual](doc/etapaAtualPilhaEnlace.png)
 
 
 
